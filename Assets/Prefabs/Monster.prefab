@@ -112,6 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 493582}
   - component: {fileID: 8224800}
+  - component: {fileID: 6950299050324126348}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -232,6 +233,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6950299050324126348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 432be667511c67642a50498e5049572e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels:
+  - cost: 200
+    visualization: {fileID: 158574}
+  - cost: 110
+    visualization: {fileID: 198738}
+  - cost: 120
+    visualization: {fileID: 105412}
 --- !u!1 &158574
 GameObject:
   m_ObjectHideFlags: 0
