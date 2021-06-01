@@ -17,21 +17,24 @@ public class PlaceMonster : MonoBehaviour
         if (CanPlaceMonster())
         {
             monster = (GameObject)Instantiate(monsterPrefab, transform.position, Quaternion.identity);
-
-            AudioSource audioSource = gameObject.GetComponent<AudioSource>();
-            audioSource.PlayOneShot(audioSource.clip);
+            PlaySound();
 
             // TODO: вычитать золото
         }
         else if (CanUpgradeMonster())
         {
             monster.GetComponent<MonsterData>().IncreaseLevel();
+            PlaySound();
 
-            AudioSource audioSource = gameObject.GetComponent<AudioSource>();
-            audioSource.PlayOneShot(audioSource.clip);
 
             // TODO: вычитать золото
         }
+    }
+
+    private void PlaySound()
+    {
+        AudioSource audioSource = gameObject.GetComponent<AudioSource>();
+        audioSource.PlayOneShot(audioSource.clip);
     }
 
     private bool CanUpgradeMonster()
