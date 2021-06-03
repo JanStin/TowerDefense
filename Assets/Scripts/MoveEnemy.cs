@@ -31,7 +31,7 @@ public class MoveEnemy : MonoBehaviour
             {
                 currentWaypoint++;
                 lastWaypointSwitchTime = Time.time;
-                // TODO: поворачиваться в направлении движения
+                RotateIntoMoveDirection();
             }
             else
             {
@@ -42,5 +42,19 @@ public class MoveEnemy : MonoBehaviour
                 // TODO: вычитать здоровье
             }
         }
+    }
+
+    private void RotateIntoMoveDirection()
+    {
+        Vector3 newStartPosition = waypoints[currentWaypoint].transform.position;
+        Vector3 newEndPositionn = waypoints[currentWaypoint + 1].transform.position;
+        Vector3 newDirection = (newEndPositionn - newStartPosition);
+
+        float x = newDirection.x;
+        float y = newDirection.y;
+        float rotationAngle = Mathf.Atan2(y, x) * 180 / Mathf.PI;
+
+        GameObject sprite = gameObject.transform.Find("Sprite").gameObject;
+        sprite.transform.rotation = Quaternion.AngleAxis(rotationAngle, Vector3.forward);
     }
 }
