@@ -2265,6 +2265,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldLabel: {fileID: 2132922819}
+  waveLabel: {fileID: 1927656023}
+  nextWaveLabels:
+  - {fileID: 1267819980}
+  - {fileID: 26303382}
 --- !u!4 &1174233834
 Transform:
   m_ObjectHideFlags: 0
