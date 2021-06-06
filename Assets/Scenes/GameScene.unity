@@ -2279,9 +2279,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldLabel: {fileID: 2132922819}
   waveLabel: {fileID: 1927656023}
+  healthLabrl: {fileID: 614529710}
   nextWaveLabels:
   - {fileID: 1267819980}
   - {fileID: 26303382}
+  healthIndicator:
+  - {fileID: 2039832533}
+  - {fileID: 155113282}
+  - {fileID: 1987836116}
+  - {fileID: 1784974624}
+  - {fileID: 835470580}
   gameOver: 0
 --- !u!4 &1174233834
 Transform:

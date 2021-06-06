@@ -41,7 +41,8 @@ public class MoveEnemy : MonoBehaviour
 
                 AudioSource audioSource = gameObject.GetComponent<AudioSource>();
                 AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
-                // TODO: вычитать здоровье
+                GameManagerBehavior gameManager = GameObject.Find("GameManager").GetComponent<GameManagerBehavior>();
+                gameManager.Health -= 1;
             }
         }
     }

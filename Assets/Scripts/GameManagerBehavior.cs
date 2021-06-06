@@ -7,7 +7,9 @@ public class GameManagerBehavior : MonoBehaviour
 {
     public Text goldLabel;
     public Text waveLabel;
+    public Text healthLabrl;
     public GameObject[] nextWaveLabels;
+    public GameObject[] healthIndicator;
 
     public bool gameOver = false;
 
@@ -46,6 +48,44 @@ public class GameManagerBehavior : MonoBehaviour
             waveLabel.text = "WAVE: " + wave + 1;
         }
     }
+    
+    private int health;
+    public int Health
+    {
+        get
+        {
+            return health;
+        }
+        set
+        {
+            if (value < health)
+            {
+                Camera.main.GetComponent<CameraShake>().Shake();
+            }
+
+            health = value;
+            healthLabrl.text = "HEALTH: " + health;
+
+            if (health <= 0 && !gameOver)
+            {
+                gameOver = true;
+                GameObject gameOverText = GameObject.FindGameObjectWithTag("GameOver");
+                gameOverText.GetComponent<Animator>().SetBool("gameOver", true);
+            }
+
+            for (int i = 0; i < healthIndicator.Length; i++)
+            {
+                if (i < Health)
+                {
+                    healthIndicator[i].SetActive(true);
+                }
+                else
+                {
+                    healthIndicator[i].SetActive(false);
+                }
+            }
+        }
+    }
 
     
 
@@ -53,5 +93,6 @@ public class GameManagerBehavior : MonoBehaviour
     {
         Gold = 1000;
         Wave = 0;
+        Health = 5;
     }
 }
