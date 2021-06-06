@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class HealthBar : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float maxHealth = 100;
+    public float currentHealth = 100;
+    private float originalScale;
+
+    private void Start()
     {
-        
+        originalScale = gameObject.transform.localScale.x;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        Vector3 tempScale = gameObject.transform.localScale;
+        tempScale.x = currentHealth / maxHealth * originalScale;
+        gameObject.transform.localScale = tempScale;
     }
 }
