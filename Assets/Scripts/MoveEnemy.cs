@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class MoveEnemy : MonoBehaviour
 {
+    public float speed = 1.0f;
+
     [HideInInspector]
     public GameObject[] waypoints;
     private int currentWaypoint = 0;
     private float lastWaypointSwitchTime;
-    private float speed = 1.0f;
+    
 
     private void Start()
     {
