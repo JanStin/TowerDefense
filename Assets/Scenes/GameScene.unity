@@ -278,7 +278,20 @@ MonoBehaviour:
   - {fileID: 1918971539}
   - {fileID: 502188154}
   - {fileID: 919480705}
-  testEnemyPrefab: {fileID: 197334, guid: f561f313e37464b2d982d25715bb43cf, type: 3}
+  waves:
+  - enemyPrefab: {fileID: 197334, guid: f561f313e37464b2d982d25715bb43cf, type: 3}
+    spawnInterval: 2.5
+    maxEnemies: 5
+  - enemyPrefab: {fileID: 197334, guid: f561f313e37464b2d982d25715bb43cf, type: 3}
+    spawnInterval: 2
+    maxEnemies: 10
+  - enemyPrefab: {fileID: 197334, guid: f561f313e37464b2d982d25715bb43cf, type: 3}
+    spawnInterval: 2
+    maxEnemies: 15
+  - enemyPrefab: {fileID: 197334, guid: f561f313e37464b2d982d25715bb43cf, type: 3}
+    spawnInterval: 1
+    maxEnemies: 5
+  timeBetweenWaves: 5
 --- !u!1001 &93503893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2269,6 +2282,7 @@ MonoBehaviour:
   nextWaveLabels:
   - {fileID: 1267819980}
   - {fileID: 26303382}
+  gameOver: 0
 --- !u!4 &1174233834
 Transform:
   m_ObjectHideFlags: 0
