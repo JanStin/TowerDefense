@@ -15,6 +15,36 @@ public class ShootEnemies : MonoBehaviour
         monsterData = gameObject.GetComponentInChildren<MonsterData>();
     }
 
+    private void Update()
+    {
+        GameObject target = null;
+        
+        float minimalEnemyDistance = float.MaxValue;
+        foreach (GameObject enemy in enemiesInRange)
+        {
+            float distanceToGoal = enemy.GetComponent<MoveEnemy>().DistanceToGoal();
+            if (distanceToGoal < minimalEnemyDistance)
+            {
+                target = enemy;
+                minimalEnemyDistance = distanceToGoal;
+            }
+        }
+        
+        if (target != null)
+        {
+            if (Time.time - lastShotTime > monsterData.CurrentLevel.fireRate)
+            {
+                Shoot(target.GetComponent<Collider2D>());
+                lastShotTime = Time.time;
+            }
+            
+            Vector3 direction = gameObject.transform.position - target.transform.position;
+            gameObject.transform.rotation = Quaternion.AngleAxis(
+                Mathf.Atan2(direction.y, direction.x) * 180 / Mathf.PI,
+                new Vector3(0, 0, 1));
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
